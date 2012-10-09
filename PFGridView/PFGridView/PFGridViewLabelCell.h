@@ -16,4 +16,5 @@
 @property (nonatomic, readonly) UILabel *textLabel;
 @property (nonatomic, assign) CGFloat margin;
 @property (nonatomic, retain) UIColor *selectedForegrondColor;
+@property (nonatomic, retain) UIColor *textColor;
 @end

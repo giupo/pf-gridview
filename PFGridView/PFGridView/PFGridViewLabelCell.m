@@ -14,18 +14,22 @@
 @synthesize textLabel;
 @synthesize margin;
 @synthesize selectedForegrondColor = _selectedForegrondColor;
+@synthesize textColor = _textColor;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier {
     if ((self = [super initWithReuseIdentifier:identifier])) {
         textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         textLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:textLabel];
+        _textColor = nil;
+        self.textColor = textLabel.textColor;
     }
     return self;
 }
 
 - (void) dealloc {
     self.selectedForegrondColor = nil;
+    self.textColor = nil;
     [super dealloc];
 }
 
@@ -39,7 +43,17 @@
 
 - (void) setSelected:(BOOL)selected {
     [super setSelected:selected];
-    textLabel.textColor = self.selectedForegrondColor;
+    if(selected) {
+        textLabel.textColor = self.selectedForegrondColor;
+    } else {
+        textLabel.textColor = self.textColor;
+    }
+}
+
+-(void) setTextColor:(UIColor *)textColor {
+    [_textColor release];
+    _textColor = [textColor retain];
+    self.textLabel.textColor = textColor;
 }
 
 @end

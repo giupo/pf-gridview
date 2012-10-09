@@ -111,6 +111,7 @@
     }
     gridCell.textLabel.text = [NSString stringWithFormat:@"%d-%d", indexPath.row,  indexPath.col];
     gridCell.normalBackgroundColor = [self backgroundColorForIndexPath:indexPath];
+    gridCell.textColor = [UIColor blueColor];
     return gridCell;
 }
 
